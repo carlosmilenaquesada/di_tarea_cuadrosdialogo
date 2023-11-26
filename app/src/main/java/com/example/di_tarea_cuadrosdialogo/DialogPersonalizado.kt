@@ -1,13 +1,13 @@
 package com.example.di_tarea_cuadrosdialogo
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -16,6 +16,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
@@ -67,7 +68,7 @@ fun DialogPersonalizado(
         Dialog(onDismissRequest = { onDismiss() }) {
             Column(
                 Modifier
-                    .background(Color.White)
+                    .background(Color(0xFF92C5FC))
                     .padding(24.dp)
                     .fillMaxWidth()
             ) {
@@ -142,28 +143,38 @@ fun MostrarDatos(
 ) {
     if (showMostrarDatos) {
         Dialog(onDismissRequest = { onDismiss() }) {
-            Column(
-                Modifier
-                    .background(Color.LightGray)
-                    .padding(24.dp)
+            Card(
+                modifier = Modifier.border(1.dp, Color.Black, RoundedCornerShape(5)),
+                shape = RoundedCornerShape(5)
             ) {
-                Text(
-                    text = "Bienvenido",
-                    fontStyle = FontStyle.Italic,
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth()
+                Column(
+                    Modifier
+                        .background(Color(0xFF00A9FF))
+                ) {
+                    Text(
+                        text = "Bienvenido",
+                        fontStyle = FontStyle.Italic,
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
 
-                )
-                Text(text = usuario, fontSize = 24.sp, textAlign = TextAlign.Center)
-                Spacer(modifier = Modifier.height(16.dp))
-                Text(
-                    text = "La contraseña ha sido aceptada",
-                    fontSize = 20.sp,
-                    textAlign = TextAlign.Center
-                )
+                    )
+                    Text(
+                        text = usuario, fontSize = 24.sp, textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Text(
+                        text = "La contraseña ha sido aceptada",
+                        fontSize = 20.sp,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+
             }
+
         }
 
     }
