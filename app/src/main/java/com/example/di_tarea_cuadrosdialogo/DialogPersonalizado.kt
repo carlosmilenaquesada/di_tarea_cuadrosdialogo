@@ -21,6 +21,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -29,6 +30,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -52,7 +54,7 @@ fun MostrarDialogPersonalizado() {
         Text(text = "Ejemplo Dialog")
         Spacer(Modifier.height(16.dp))
         Button(onClick = { show = true }, shape = RoundedCornerShape(5.dp)) {
-            Text(text = "Mostrar")
+            Text(text = "Acceso usuario")
         }
     }
 
@@ -68,7 +70,7 @@ fun DialogPersonalizado(
         Dialog(onDismissRequest = { onDismiss() }) {
             Column(
                 Modifier
-                    .background(Color(0xFF92C5FC))
+                    .background(Color(0xFF004166))
                     .padding(24.dp)
                     .fillMaxWidth()
             ) {
@@ -98,15 +100,23 @@ fun ContenidoDialogPersonalizado(onDismiss: () -> Unit) {
     OutlinedTextField(
         value = usuario,
         onValueChange = { usuario = it },
-        label = { Text("Usuario") }
+        label = { Text(text = "Usuario", color = Color.White) },
+        colors = TextFieldDefaults.outlinedTextFieldColors(
+            focusedBorderColor = Color.White,
+            unfocusedBorderColor = Color.White
+        ), textStyle = TextStyle(color = Color.White)
     )
     Spacer(Modifier.height(16.dp))
     OutlinedTextField(
         value = contrasenia,
         onValueChange = { contrasenia = it },
-        label = { Text("Contraseña") },
+        label = { Text(text = "Usuario", color = Color.White) },
         visualTransformation = PasswordVisualTransformation(),
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+        colors = TextFieldDefaults.outlinedTextFieldColors(
+            focusedBorderColor = Color.White,
+            unfocusedBorderColor = Color.White
+        ), textStyle = TextStyle(color = Color.White)
     )
     Spacer(Modifier.height(16.dp))
     var showMostrarDatos by rememberSaveable {
@@ -149,7 +159,7 @@ fun MostrarDatos(
             ) {
                 Column(
                     Modifier
-                        .background(Color(0xFF00A9FF))
+                        .background(Color(0xFF4599B5))
                 ) {
                     Text(
                         text = "Bienvenido",
@@ -157,7 +167,8 @@ fun MostrarDatos(
                         fontSize = 24.sp,
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center,
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier.fillMaxWidth(),
+                        color = Color.White
 
                     )
                     Text(
